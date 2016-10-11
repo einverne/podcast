@@ -1,0 +1,29 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: 个人存档
+brand: EV Podcast
+email: ein.verne+podcast@gmail.com
+owner: EV
+author: TUNA
+copyright:
+description: Personal podcast with the help of TUNA
+baseurl: "" # the subpath of your site, e.g. /blog
+category: Technology
+permalink: "/:year/:month/:title.html"
+
+url: "https://einverne.github.io/podcast" # the base hostname & protocol for your site
+default_thumb: "https://podcast.tuna.moe/assets/img/tuna.png"
+
+# Build settings
+markdown: kramdown
+
+sass:
+    sass_dir: assets/css
+
+about: "这是一个个人 Podcast 站点，存放一些个人收藏音乐，将来可能会和朋友就一些主题做一些 Podcast，代码部分来自：https://github.com/tuna/podcast"

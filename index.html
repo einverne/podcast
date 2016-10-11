@@ -1,0 +1,48 @@
+---
+layout: default
+title: Podcast
+permalink: /
+---
+
+<div class="container">
+  <div class="row">
+    <div id="posts" class="col-md-12">
+      <h2> # Podcasts </h2>
+      <p class="rss-subscribe"><i class="fa fa-rss"></i> 通过 <a href="{{ "/podcast.xml" | prepend: site.baseurl }}">Podcast</a> 订阅音频.</p>
+      <p>本站内容按 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 发布。</p>
+
+      {% for post in site.posts %}
+      <!-- Blog Post -->
+      <div class="row">
+        {% if post.thumb %}
+        <div class="col-md-8">
+          {% else %}
+          <div class="col-md-12">
+            {% endif %}
+            <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ post.title }}</h3></a>
+            <div class="post-meta">
+              <i class="fa fa-calendar"></i> <strong>时间</strong>: {{post.date | date: "%Y-%-m-%-d"}}
+            </div>
+            {{ post.content }}
+            <p><a href="{{ post.url | prepend: site.baseurl }}">[Read More]</a></p>
+          </div>
+          {% if post.thumb %}
+          <div class="col-md-4">
+            <img class="thumbnail" src="{%if post.thumb contains '://' %}{{post.thumb}}{% else %}{{"/assets/img/podcast/" | prepend: site.baseurl}}{{post.thumb}}{%endif%}" />
+          </div>
+          {% endif %}
+        </div>
+        <div class="hline"></div>
+        <div class="spacing"></div>
+        {% endfor %}
+
+        <p class="rss-subscribe"><i class="fa fa-rss"></i> Subscribe to this blog <a href="{{ "/podcast.xml" | prepend: site.baseurl }}">via Podcast</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+  vim: ts=2 sts=2 sw=2 expandtab
+-->
