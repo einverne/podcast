@@ -24,6 +24,7 @@ layout: null
 		<googleplay:category text="{{ site.category }}"/>
 		<itunes:category text="{{ site.category }}"/>
 		<language>zh</language>
+		<itunes:explicit>no</itunes:explicit>
 		{% for post in site.categories['podcast'] %}
 		<item>
 			<title>{{ post.title | xml_escape}}</title>
@@ -39,6 +40,7 @@ layout: null
 			<guid>{{ post.media }}</guid>
 			<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 			<itunes:duration>{{ post.duration }}</itunes:duration>
+			<itunes:explicit>no</itunes:explicit>
 		</item>
 		{% endfor %}
 	</channel>
