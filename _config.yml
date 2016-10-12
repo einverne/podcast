@@ -9,7 +9,7 @@
 title: 静听
 brand: 静听
 email: ein.verne+podcast@gmail.com
-owner: einverne
+owner: Ein Verne
 author: einverne
 copyright:
 description: Personal podcast with the help of TUNA
@@ -17,7 +17,7 @@ baseurl: "/podcast" # the subpath of your site, e.g. /blog
 category: Technology
 permalink: "/:year/:month/:title.html"
 
-url: "https://einverne.github.io/" # the base hostname & protocol for your site
+url: "https://einverne.github.io" # the base hostname & protocol for your site
 default_thumb: "https://einverne.github.io/podcast/assets/img/ghost.gif"
 
 # Build settings

@@ -2,30 +2,41 @@
 layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+	xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0">
 	<channel>
 		<title>{{ site.title | xml_escape }}</title>
 		<link>{{ site.url }}{{ site.baseurl }}/</link>
 		<copyright>{{ site.copyright }}</copyright>
 		<itunes:subtitle></itunes:subtitle>
+		<googleplay:author> {{ post.author }} </googleplay:author>
 		<itunes:author>{{ site.author }}</itunes:author>
+		<googleplay:description> {{ site.description | xml_escape }} </googleplay:description>
+		<description> {{ site.description | xml_escape }} </description>
 		<itunes:summary>{{ site.description | xml_escape }}</itunes:summary>
+		<googleplay:email> {{ site.email }}</googleplay:email>
 		<itunes:owner>
 			<itunes:name>{{ site.owner }}</itunes:name>
 			<itunes:email>{{ site.email }}</itunes:email>
 		</itunes:owner>
-		<itunes:image href="{{site.default_thumb}}" />
+		<googleplay:image href="{{ site.default_thumb }}" />
+		<itunes:image href="{{ site.default_thumb }}" />
+		<googleplay:category text="{{ site.category }}"/>
 		<itunes:category text="{{ site.category }}"/>
+		<language>zh</language>
 		{% for post in site.categories['podcast'] %}
 		<item>
 			<title>{{ post.title | xml_escape}}</title>
+			<googleplay:description>{{ post.excerpt | strip_html | xml_escape }}</googleplay:description>
 			<description> {{ post.excerpt | strip_html | xml_escape }} </description>
+			<googleplay:author>{{ post.author }}</googleplay:author>
 			<itunes:author> {{ post.author }}</itunes:author>
 			<itunes:subtitle> {{ post.subtitle }}</itunes:subtitle>
 			<itunes:summary> {{ post.excerpt | strip_html | xml_escape }} </itunes:summary>
+			<googleplay:image href="{%if post.thumb %}{%if post.thumb contains '://' %}{{post.thumb}}{% else %}{{site.url}}{{"/assets/img/podcast/" | prepend: site.baseurl}}{{post.thumb}}{%endif%}{%else%}{{site.default_thumb}}{%endif%}" />
 			<itunes:image href="{%if post.thumb %}{%if post.thumb contains '://' %}{{post.thumb}}{% else %}{{site.url}}{{"/assets/img/podcast/" | prepend: site.baseurl}}{{post.thumb}}{%endif%}{%else%}{{site.default_thumb}}{%endif%}" />
 			<enclosure url="{{ post.media }}" length="{{ post.length }}" type="{{ post.mediatype }}"/>
-			<guid></guid>
+			<guid>{{ post.media }}</guid>
 			<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 			<itunes:duration>{{ post.duration }}</itunes:duration>
 		</item>
